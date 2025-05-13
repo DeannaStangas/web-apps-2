@@ -10,6 +10,7 @@ class CompaniesController < ApplicationController
   def show
     # find a Company
     @company = Company.find_by({"id"=> params["id"]})
+    @contacts=Contact.where({"company_id"=> @company["id"]})
     p @company
     # render companies/show view with details about Company
   end
